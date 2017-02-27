@@ -14,8 +14,10 @@ import ProgressBar from'./progressBar';
 import QuizAppBar from './quizAppBar';
 import AddQuestion from './addQuestion';
 import QuizInfo from './quizInfo';
-import Login from './login'
-import app from './app'
+import Login from './login';
+import app from './app';
+import DisplayQuestions from './displayQuestions'
+
 
 
 injectTapEventPlugin();
@@ -31,7 +33,7 @@ const muiTheme=getMuiTheme({
 ReactDOM.render(
     <MuiThemeProvider muiTheme={muiTheme}>
          <Router history={hashHistory}>
-           <Route path="/" component={Login}/>
+           <Route path="/" component={DisplayQuestions}/>
             <Route path="/app" component={app}   >
                 <Route path="addQuestion" component={AddQuestion}/>
                 <Route path="quizInfo" component={QuizInfo}/>
