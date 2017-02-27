@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Header from './appBar';
-import SurveyBar from './surveyBar';
+import QuizAppBar from './quizAppBar';
 
 
 
@@ -9,7 +8,7 @@ class App extends Component {
    console.log("hello");
    return (
             <div>
-               <SurveyBar />
+               <QuizAppBar />
 
                <div className="main" >
                    {this.props.children}

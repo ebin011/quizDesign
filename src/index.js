@@ -10,6 +10,12 @@ import {dark400, dark700,teal400,teal700} from 'material-ui/styles/colors';
 import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 
 import QuesHome from './quesHome';
+import ProgressBar from'./progressBar';
+import QuizAppBar from './quizAppBar';
+import AddQuestion from './addQuestion';
+import QuizInfo from './quizInfo';
+import Login from './login'
+import app from './app'
 
 
 injectTapEventPlugin();
@@ -25,8 +31,11 @@ const muiTheme=getMuiTheme({
 ReactDOM.render(
     <MuiThemeProvider muiTheme={muiTheme}>
          <Router history={hashHistory}>
-           <Route path="/" component={QuesHome}/>
-           
+           <Route path="/" component={Login}/>
+            <Route path="/app" component={app}   >
+                <Route path="addQuestion" component={AddQuestion}/>
+                <Route path="quizInfo" component={QuizInfo}/>
+           </Route>
        </Router>
      </MuiThemeProvider>,
  document.getElementById('root')

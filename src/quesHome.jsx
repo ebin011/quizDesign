@@ -10,6 +10,9 @@ import { Grid,Col,Row} from 'react-flexbox-grid';
 import MenuItem from 'material-ui/MenuItem';
 import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn}
   from 'material-ui/Table';
+import Avatar from 'material-ui/Avatar';
+import Chip from 'material-ui/Chip';  
+import {Rectangle, Circle, Ellipse, Line, Polyline, CornerBox, Triangle} from 'react-shapes'; 
 
 import Background from '../images/Background.jpg';
 
@@ -17,7 +20,9 @@ import Background from '../images/Background.jpg';
  const cardheadstyle={
  background:'#5D605C',
  textAlign:'center',
-
+ chip: {
+    marginLeft:'80%',
+  },
  
 
 }
@@ -30,10 +35,7 @@ const dialogStyle={
 
 }
 
- const cardStyle={
-  
- }
-
+ 
 const buttonStyle={
   margin:'5%',
   fontWeight: 'bold',
@@ -43,7 +45,9 @@ const buttonStyle={
 
 const buttonLabelStyle={
   fontWeight: 'bold',
-  fontSize:10
+  fontSize:10,
+  marginTop:'0px',
+  marginBottom:'0px'
 }
 
 
@@ -69,20 +73,28 @@ class QuizHome extends Component {
 
 
     return(
-<div style={{ backgroundImage: `url(${Background})`,backgroundRepeat:'no-repeat',backgroundAttachment:'fixed',width:'100%',height:'100%'}}>
+<div style={{ backgroundImage: `url(${Background})`,backgroundRepeat:'no-repeat',backgroundAttachment:'fixed',backgroundPosition:'center',width:'100%',height:'100%'}}>
 <Grid >
 <Row>
     <Col xs={8}>
     <Paper  style={queStyle} zDepth={3}>
-    <Card style={cardStyle}>
+    <Card >
          
          <CardHeader title="Question: Number" style={cardheadstyle} titleStyle={title} titleColor='white' subtitleColor='white'>
-         <h2 style={{textAlign:'Right',marginTop:'0px',marginBottom:'0px',color:'#FFFFFF'}}>00:00:00</h2>
+            <div style={{textAlign:'Right',}}>
+            <Chip
+              
+              style={cardheadstyle.chip}
+             >
+             <h3 style={{textWeight:'bold',textAlign:'Left',marginTop:'0px',marginBottom:'0px'}}>Time Left</h3>
+             <h2 style={{textAlign:'center',marginTop:'0px',marginBottom:'0px',color:'#AB0101'}}>00</h2>
+            </Chip>
+            </div>
          </CardHeader>
           
           <h3 style={{marginLeft:'2%'}}>Your Question Here</h3>
           <Divider />
-        <Row center= 'xs'>
+        <Row center= 'xs'  style={{marginTop:'0px',marginBottom:'0px'}}>
          <Col xs={6}>
 
         <label>
@@ -102,8 +114,9 @@ class QuizHome extends Component {
       </label>
 
       </Col>
+     
       </Row>
-      <Row center = 'xs'>
+      <Row center = 'xs'  style={{marginTop:'0px',marginBottom:'0px'}}>
       <Col xs={6}>
       <label>
       <RaisedButton label="Option 3" 
